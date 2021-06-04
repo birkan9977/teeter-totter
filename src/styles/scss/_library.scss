@@ -1,0 +1,19 @@
+$fonts: "Roboto", Arial, sans-serif !default;
+
+@function pixelToRem($pixelValue) {
+  @return $pixelValue/16 * 1rem;
+}
+
+$app-white: rgba(rgb(240, 245, 245), 0.8);
+$app-white-fallback: rgb(240, 245, 245);
+$app-black: rgba(rgb(46, 44, 44), 0.8);
+$app-black-fallback: rgb(46, 44, 44);
+$font-primary: $fonts;
+$font-size: pixelToRem(16) !default;
+$ball-color: rgb(158, 89, 89);
+@mixin flex-column($horizontal, $vertical) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $vertical;
+  align-items: $horizontal;
+}

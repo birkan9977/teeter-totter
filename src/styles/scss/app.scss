@@ -1,0 +1,50 @@
+@use './reset';
+@import "./library";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: $font-size;
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: $app-black-fallback;
+  color: $app-black;
+  background: $app-black-fallback;
+  background: $app-black;
+}
+
+.app-container {
+  @include flex-column(center, center);
+  height: 100vh;
+}
+
+.game-container {
+  @include flex-column(center, flex-start);
+  width: 700px;
+  height: 500px;
+  border: 1px solid $app-black;
+  background-color: black;
+}
+
+.controls {
+  display: flex;
+}
