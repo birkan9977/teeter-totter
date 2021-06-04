@@ -15,7 +15,10 @@ const useCanvas = (draw, options = {}, pause, predraw, postdraw) => {
         return;
       }
       predraw(context, canvas);
-      draw(context, canvas, pause);
+      const response = draw(context, canvas, pause);
+      if (response === "gameEnd") {
+        console.log("gameEnd");
+      }
       postdraw(context);
       animationFrameId = window.requestAnimationFrame(render);
     };
