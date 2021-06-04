@@ -2,7 +2,7 @@ import gameBoard from "./board";
 import RandomObject from "./random-object";
 import drawPlacedObjects from "./placed-objects-list";
 import { idIndex } from "../../utils/helper-functions";
-
+import calculateMomentum from "./calculate";
 let fallingObject = null;
 let fixedObject = null;
 let placedObjects = [];
@@ -125,7 +125,6 @@ export const updateScreen = (ctx, canvas, pause) => {
   //fixed object on the right hand side
   //console.log(placedObjects)
   if (fixedObject) {
-    fixedObject.continousMove(ctx, 1);
     if (fixedObject.placed && !placedObjects.some((item) => item.id === -999)) {
       fixedObject.draw(ctx);
       const { x, y, id, value, objectType, center, specs } = fixedObject;
@@ -137,11 +136,11 @@ export const updateScreen = (ctx, canvas, pause) => {
     drawPlacedObjects(placedObjects, ctx);
     ctx.font = `15px 'Arial'`;
   }
+  //console.log(placedObjects)
   if (fallingObject) {
     fallingObject.draw(ctx);
     let speed = 1;
     if (placedObjects.length > 5) {
-      console.log(placedObjects.length);
       speed = 1.5;
     }
     fallingObject.continousMove(ctx, speed);
@@ -158,7 +157,7 @@ export const updateScreen = (ctx, canvas, pause) => {
     if (fallingObject.placed) {
       const { x, y, id, value, objectType, center, specs } = fallingObject;
       placedObjects.push({ x, y, id, value, objectType, center, specs });
-
+      calculateMomentum(placedObjects);
       retrieveNewObject(ctx);
     }
   }

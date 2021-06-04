@@ -1,7 +1,7 @@
 import { drawCircle, drawRectangle, drawTriangle } from "./draw-functions";
+import gameBoard from "./board";
 const drawPlacedObjects = (list, ctx) => {
-  const y = 325;
-  console.log("list", list);
+  const y = gameBoard.maxY - gameBoard.thresHold;
   list.forEach((item) => {
     switch (item.objectType) {
       case "circle":

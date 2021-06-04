@@ -26,8 +26,8 @@ class RandomObject {
 
   randomPosition() {
     const xpos = random(
-      gameBoard.maxX / 2 + gameBoard.baseLimit,
-      gameBoard.maxX - gameBoard.baseLimit - 20
+      (gameBoard.maxX / 3) * 2 + gameBoard.baseLimit,
+      gameBoard.maxX - gameBoard.baseLimit - 20 - this.value
     );
     return xpos;
   }
@@ -39,6 +39,9 @@ class RandomObject {
     return color;
   }
   randomValue() {
+    if (this.fixed) {
+      return random(5, 10);
+    }
     return random(1, 10);
   }
   randomObject() {
