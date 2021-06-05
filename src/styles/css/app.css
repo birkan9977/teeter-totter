@@ -97,8 +97,8 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.7;
-  color: #2e2c2c;
-  color: rgba(46, 44, 44, 0.8);
+  color: #f0f5f5;
+  color: rgba(240, 245, 245, 0.8);
   background: #2e2c2c;
   background: rgba(46, 44, 44, 0.8);
 }
@@ -117,9 +117,10 @@ body {
   justify-content: flex-start;
   align-items: center;
   width: 700px;
-  height: 500px;
+  height: 600px;
   border: 1px solid rgba(46, 44, 44, 0.8);
-  background-color: black;
+  background: #2e2c2c;
+  background: rgba(46, 44, 44, 0.8);
 }
 
 .controls {

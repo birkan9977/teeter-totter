@@ -26,8 +26,8 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 1.7;
-  color: $app-black-fallback;
-  color: $app-black;
+  color: $app-white-fallback;
+  color: $app-white;
   background: $app-black-fallback;
   background: $app-black;
 }
@@ -40,9 +40,10 @@ body {
 .game-container {
   @include flex-column(center, flex-start);
   width: 700px;
-  height: 500px;
+  height: 600px;
   border: 1px solid $app-black;
-  background-color: black;
+  background: $app-black-fallback;
+  background: $app-black;
 }
 
 .controls {

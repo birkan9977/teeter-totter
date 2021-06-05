@@ -3,9 +3,8 @@ import utils from "./utils";
 
 const Canvas = (props) => {
   const { draw, options, pause, ...rest } = props;
-  const { context, ...config } = options;
   const { predraw, postdraw } = utils;
-  const canvasRef = useCanvas(draw, options, pause, predraw, postdraw);
+  const canvasRef = useCanvas(draw, options, predraw, postdraw, pause);
 
   return <canvas id="game-window" ref={canvasRef} {...rest} />;
 };
