@@ -177,6 +177,20 @@ export const updateScreen = (ctx, canvas, pause) => {
       };
     }
 
+    if (
+      Math.floor(calculations.left.momentum) - Math.floor(calculations.right.momentum) === 0 &&
+      placedObjects.length > 1
+    ) {
+      console.log('Success')
+      game = {
+        ...game,
+        end: {
+          status: "ended",
+          reason: "Success: Teeter Totter Balanced!!!",
+        },
+      };
+    }
+
     if ((deg < 30 && deg > -30)) {
       if (!bending) {
         bending = true;
