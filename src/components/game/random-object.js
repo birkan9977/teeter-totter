@@ -47,7 +47,6 @@ class RandomObject {
   randomObject() {
     const randomNumber = random(1, 3);
     //randomNumber = 1;
-    //console.log(randomNumber)
     switch (randomNumber) {
       case 1:
         return "circle";

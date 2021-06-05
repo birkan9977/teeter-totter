@@ -68,10 +68,8 @@ export const updateScreen = (ctx, canvas, pause) => {
   if (pause) return;
 
   // background
-  //console.log("update");
   ctx.fillStyle = "#1c1273";
   //ctx.fillRect(0, 0, canvas.width, canvas.height);
-  //console.log(canvas.width,canvas.height)
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // border
@@ -109,9 +107,7 @@ export const updateScreen = (ctx, canvas, pause) => {
   ctx.fillStyle = "hsl(24, 100%, 20%)";
   ctx.fill();
 
-
   //fixed object on the right hand side
-  //console.log(placedObjects)
   if (fixedObject) {
     if (fixedObject.placed && !placedObjects.some((item) => item.id === -999)) {
       fixedObject.draw(ctx);
@@ -124,7 +120,6 @@ export const updateScreen = (ctx, canvas, pause) => {
     drawPlacedObjects(placedObjects, ctx);
     ctx.font = `15px 'Arial'`;
   }
-  //console.log(placedObjects)
   if (fallingObject) {
     fallingObject.draw(ctx);
     let speed = 1;
@@ -141,7 +136,6 @@ export const updateScreen = (ctx, canvas, pause) => {
       fallingObject.center.x,
       fallingObject.center.y + 4
     );
-    //console.log(fallingObject);
     if (fallingObject.placed) {
       const { x, y, id, value, objectType, center, specs } = fallingObject;
       placedObjects.push({ x, y, id, value, objectType, center, specs });
@@ -151,8 +145,6 @@ export const updateScreen = (ctx, canvas, pause) => {
     }
 
     const calculations = calculateMomentum(placedObjects);
-
-    //console.log(calculations)
 
     if (!bending) {
       prevDeg = deg;
@@ -178,10 +170,11 @@ export const updateScreen = (ctx, canvas, pause) => {
     }
 
     if (
-      Math.floor(calculations.left.momentum) - Math.floor(calculations.right.momentum) === 0 &&
+      Math.floor(calculations.left.momentum) -
+        Math.floor(calculations.right.momentum) ===
+        0 &&
       placedObjects.length > 1
     ) {
-      console.log('Success')
       game = {
         ...game,
         end: {
@@ -191,18 +184,16 @@ export const updateScreen = (ctx, canvas, pause) => {
       };
     }
 
-    if ((deg < 30 && deg > -30)) {
+    if (deg < 30 && deg > -30) {
       if (!bending) {
         bending = true;
         simDeg = deg;
         simPrevDeg = prevDeg;
-        
       }
 
       ctx.save(); // save canvas
 
       const step = 0.2;
-      //console.log(simDeg, simPrevDeg);
       ctx.rotate((simPrevDeg * Math.PI) / 180); // rotate canvas
       if (simDeg < simPrevDeg) {
         simPrevDeg -= step;
@@ -228,7 +219,7 @@ export const updateScreen = (ctx, canvas, pause) => {
 
       ctx.fill(path);
       ctx.restore(); // restore canvas
-    }else{
+    } else {
       game = {
         ...game,
         end: {

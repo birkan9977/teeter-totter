@@ -15,7 +15,6 @@ const dataReducer = (state = dataInitialState, action) => {
     case UPDATE_PAUSE:
       return { ...state, pause: action.payload };
     case RESET_GAME:
-      console.log("test");
       return dataInitialState;
 
     default:

@@ -24,7 +24,6 @@ const useCanvas = (draw, options = {}, predraw, postdraw, pause) => {
 
     const render = () => {
       if (pause) {
-        console.log("paused");
         window.cancelAnimationFrame(animationFrameId);
         draw(context, canvas, pause);
         const game = getGameStatus();
@@ -42,7 +41,6 @@ const useCanvas = (draw, options = {}, predraw, postdraw, pause) => {
       }
       if (game?.end?.status === "ended") {
         window.cancelAnimationFrame(animationFrameId);
-        console.log("gameEnd");
         handleUpdateStart();
         handleUpdateData(game);
         restoreGameInits();
